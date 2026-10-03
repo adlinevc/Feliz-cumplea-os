@@ -1,0 +1,497 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #100719;
+    color: #eee7f5;
+}
+
+.pantalla {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.oculto {
+    display: none !important;
+}
+
+
+/* ==================== BOTONES ==================== */
+
+button {
+    border: none;
+    cursor: pointer;
+    padding: 14px 30px;
+    border-radius: 30px;
+
+    background: #c5a6e8;
+    color: #1b0d29;
+
+    font-size: 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(197, 166, 232, 0.3);
+}
+
+
+/* ==================== BIENVENIDA ==================== */
+
+.bienvenida {
+    overflow: hidden;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #3b205c 0%,
+            #21102f 45%,
+            #0c0612 100%
+        );
+}
+
+.contenido-bienvenida {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    animation: aparecer 1.5s ease;
+}
+
+.estrellas::before,
+.estrellas::after {
+    content: "✦   ·   ✧      ·      ✦   ·   ✧";
+
+    position: absolute;
+    width: 100%;
+    left: 0;
+
+    color: #c5a6e8;
+    font-size: 22px;
+    letter-spacing: 20px;
+    opacity: 0.7;
+
+    animation: flotar 5s ease-in-out infinite;
+}
+
+.estrellas::before {
+    top: 18%;
+}
+
+.estrellas::after {
+    bottom: 18%;
+    animation-delay: 2s;
+}
+
+.corazon {
+    color: #c5a6e8;
+    font-size: 85px;
+    margin-bottom: 15px;
+    animation: latido 2s infinite;
+}
+
+.pequeno {
+    color: #b6a9c5;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.bienvenida h1 {
+    color: #f4edf9;
+    font-size: 55px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    color: #c0b5cc;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+
+/* ==================== CARTA ==================== */
+
+.carta {
+    background:
+        radial-gradient(
+            circle at top,
+            #382052 0%,
+            #1a0c27 55%,
+            #09040d 100%
+        );
+
+    align-items: flex-start;
+    padding: 60px 20px;
+}
+
+.sobre {
+    width: min(850px, 100%);
+
+    background: #f1ebf5;
+    color: #30253a;
+
+    padding: 55px;
+    border-radius: 6px;
+    border: 2px solid #b998d8;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+
+    position: relative;
+    animation: subir 1s ease;
+}
+
+.sello {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #8c67ae;
+    color: #f7effc;
+
+    border-radius: 50%;
+
+    font-size: 32px;
+
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sobre h2 {
+    text-align: center;
+    color: #402452;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.linea {
+    width: 80px;
+    height: 2px;
+    background: #9b78bb;
+    margin: 0 auto 35px;
+}
+
+.texto-carta {
+    font-size: 17px;
+    line-height: 1.85;
+}
+
+.texto-carta p {
+    margin-bottom: 22px;
+}
+
+.texto-carta .especial {
+    color: #67467e;
+    font-style: italic;
+    padding-left: 18px;
+    border-left: 3px solid #a580c4;
+}
+
+.firma {
+    text-align: right;
+    margin-top: 35px;
+}
+
+.sobre button {
+    display: block;
+    margin: 35px auto 0;
+}
+
+
+/* ==================== MÚSICA ==================== */
+
+.musica {
+    background:
+        radial-gradient(
+            circle at center,
+            #3a2055 0%,
+            #1b0c29 55%,
+            #09040e 100%
+        );
+
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.contenido-musica {
+    width: min(650px, 100%);
+    animation: aparecer 1s ease;
+}
+
+.nota-musical {
+    font-size: 75px;
+    color: #c5a6e8;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.musica h2 {
+    color: #f4edf9;
+    font-size: 42px;
+    margin: 10px 0 25px;
+}
+
+
+/* TARJETA DE LA CANCIÓN */
+
+.cancion-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 22px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(197, 166, 232, 0.35);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    margin: 0 auto 25px;
+}
+
+.disco {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #8c67ae;
+    color: #f8f1fc;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    flex-shrink: 0;
+
+    animation: girar 5s linear infinite;
+}
+
+.informacion-cancion {
+    text-align: left;
+}
+
+.informacion-cancion span {
+    display: block;
+    color: #f4edf9;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.informacion-cancion small {
+    color: #b6a9c5;
+    font-size: 15px;
+}
+
+.dedicatoria-cancion {
+    color: #c5a6e8;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.texto-musica {
+    color: #c0b5cc;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.estrellita {
+    color: #c5a6e8;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+
+/* ==================== FINAL ==================== */
+
+.final {
+    background:
+        radial-gradient(
+            circle at center,
+            #3a2055 0%,
+            #1b0c29 55%,
+            #09040e 100%
+        );
+
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.contenido-final {
+    width: min(700px, 100%);
+    animation: aparecer 1.5s ease;
+}
+
+.corazones-final {
+    color: #c5a6e8;
+    font-size: 30px;
+    margin-bottom: 35px;
+    animation: latido 2s infinite;
+}
+
+.contenido-final p {
+    color: #c5bdc9;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.separador-final {
+    color: #c5a6e8;
+    font-size: 25px;
+    margin: 35px 0;
+}
+
+.contenido-final h2 {
+    color: #f4edf9;
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.contenido-final .grande {
+    color: #c5a6e8;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ultima-frase {
+    margin-top: 35px;
+    color: #b6a9c5 !important;
+}
+
+
+/* ==================== ANIMACIONES ==================== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ==================== CELULAR ==================== */
+
+@media (max-width: 600px) {
+
+    .bienvenida h1 {
+        font-size: 38px;
+    }
+
+    .corazon {
+        font-size: 65px;
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    .carta {
+        padding: 55px 12px 30px;
+    }
+
+    .sobre {
+        padding: 45px 22px 30px;
+    }
+
+    .sobre h2 {
+        font-size: 26px;
+    }
+
+    .texto-carta {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .musica h2 {
+        font-size: 34px;
+    }
+
+    .cancion-card {
+        padding: 18px;
+    }
+
+    .contenido-final h2 {
+        font-size: 34px;
+    }
+
+    .contenido-final p {
+        font-size: 16px;
+    }
+}
